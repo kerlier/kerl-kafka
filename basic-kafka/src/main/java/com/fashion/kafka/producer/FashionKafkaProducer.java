@@ -8,6 +8,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
+import java.util.UUID;
 
 /**
  *
@@ -29,10 +30,15 @@ public class FashionKafkaProducer  {
 
         producer = new KafkaProducer<>(properties);
 
-        ProducerRecord<String, String> record = new ProducerRecord<String, String>("test-topic","name","value");
 
-        //同步发送
-        producer.send(record);
+        int i=0;
+        while(true){
+            ProducerRecord<String, String> record = new ProducerRecord<String, String>("test-topic", UUID.randomUUID().toString(),"value"+i);
+
+            //同步发送
+            producer.send(record);
+            i++;
+        }
 
     }
 
