@@ -24,6 +24,7 @@ public class FashionKafkaProducer  {
         Properties properties = new Properties();
         //这里的kafka servers最好指定两个，kafka会根据配置的server连接到集群，假如有一台server,可以通过另外一台继续连接到集群
         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.5.128:9092");
+
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,StringSerializer.class);
 
@@ -39,6 +40,7 @@ public class FashionKafkaProducer  {
                 int partition = recordMetadata.partition();
                 System.out.println("name"+i+" 被发送到" + partition);
             } catch (Exception e) {
+
                 e.printStackTrace();
             }
             System.out.println("aa");

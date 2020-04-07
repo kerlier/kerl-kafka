@@ -1,6 +1,10 @@
 package com.fashion.kafka.thread;
 
 
+<<<<<<< HEAD
+=======
+import com.fashion.kafka.message.MessageInfo;
+>>>>>>> 37cc198bdcabb948d17385cc8fad3883576adcfd
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
