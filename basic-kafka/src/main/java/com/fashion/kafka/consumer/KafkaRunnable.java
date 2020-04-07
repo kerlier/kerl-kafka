@@ -55,6 +55,8 @@ public class KafkaRunnable  implements  Runnable{
                     currentMessage = record.key();
 
                     System.out.println(i+"处理数据中，"+record.key()+ " 需要处理10分钟");
+                }else{
+                    consumer.commitSync();
                 }
             }
 
