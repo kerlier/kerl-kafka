@@ -64,6 +64,7 @@ public class FashionKafkaConsumer {
         });
 
 
+
         while (true) {
             //指定拉取时间，如果超过100ms，就拉取失败
             ConsumerRecords<String, String> records = consumer.poll(100);
@@ -88,6 +89,7 @@ public class FashionKafkaConsumer {
 //                    }
                  }
                 );
+
             }
             //            System.out.println("wait 20 seconds");
 //            try {

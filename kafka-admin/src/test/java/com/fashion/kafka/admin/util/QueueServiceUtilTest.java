@@ -20,7 +20,11 @@ public class QueueServiceUtilTest {
 //                "org.apache.kafka.common.serialization.StringSerializer");
 //        props.put("value.serializer",
 //                "org.apache.kafka.common.serialization.StringSerializer");
+<<<<<<< HEAD
+        QueueServiceUtil.createNewMessageService("kafka-test-4","192.168.5.134:2181,192.168.5.135:2181,192.168.5.136:2181", QueueServiceType.KAFKA,props,6,3);
+=======
         QueueServiceUtil.createNewMessageService("kafka-test-3","192.168.5.134:2181,192.168.5.135:2181,192.168.5.136:2181", QueueServiceType.KAFKA,props,3,3);
+>>>>>>> 37cc198bdcabb948d17385cc8fad3883576adcfd
     }
 
 

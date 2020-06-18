@@ -5,9 +5,11 @@ import kafka.server.KafkaConfig;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
+import java.util.Random;
 
 /**
  *
@@ -22,6 +24,7 @@ public class FashionKafkaProducer  {
         Properties properties = new Properties();
         //这里的kafka servers最好指定两个，kafka会根据配置的server连接到集群，假如有一台server,可以通过另外一台继续连接到集群
         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.198.72:9092");
+
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,StringSerializer.class);
 
@@ -35,6 +38,7 @@ public class FashionKafkaProducer  {
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
+
                 e.printStackTrace();
             }
             System.out.println("aa");
