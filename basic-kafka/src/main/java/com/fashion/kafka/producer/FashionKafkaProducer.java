@@ -21,18 +21,19 @@ public class FashionKafkaProducer  {
     public static void main(String[] args) {
         Properties properties = new Properties();
         //这里的kafka servers最好指定两个，kafka会根据配置的server连接到集群，假如有一台server,可以通过另外一台继续连接到集群
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.5.134:9092");
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.198.72:9092");
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,StringSerializer.class);
 
         producer = new KafkaProducer<>(properties);
 
-        for (int i = 0; i <10 ; i++) {
+        for (int i = 1000; i <2000 ; i++) {
             ProducerRecord<String, String> record = new ProducerRecord<String, String>("test-topic","name"+i,"value"+i);
             producer.send(record);
+            System.out.println("name"+i+ ":value"+i );
 
             try {
-                Thread.sleep(10000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
